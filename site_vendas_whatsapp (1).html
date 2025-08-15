@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colletion Play - Loja de Brinquedos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8e1;
+            color: #333;
+        }
+        header {
+            background-color: #d4af37;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .produto {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border: 2px solid #d4af37;
+        }
+        .produto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #d4af37;
+        }
+        .preco {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #d4af37;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-top: 5px;
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #d4af37;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #b8902e;
+        }
+    </style>
+</head>
+<body>
+
+<header>🛒 Colletion Play - Compre pelo WhatsApp</header>
+
+<div class="container">
+    <div class="produto">
+        <img src="Imagem_caminhao.jpg" alt="Caminhão Contêiner">
+        <h3>Caminhão Contêiner</h3>
+        <p class="preco">R$ 40,00 <br><small>R$ 35,00 (a partir de 6)</small></p>
+        <input type="number" id="qtd1" min="1" value="1">
+        <button onclick="comprar('Caminhão Contêiner', document.getElementById('qtd1').value)">Comprar pelo WhatsApp</button>
+    </div>
+    
+    <div class="produto">
+        <img src="Imagem_guindaste.jpg" alt="Guindaste / Escavadeira">
+        <h3>Guindaste / Escavadeira</h3>
+        <p class="preco">R$ 40,00 <br><small>R$ 35,00 (a partir de 3)</small></p>
+        <input type="number" id="qtd2" min="1" value="1">
+        <button onclick="comprar('Guindaste / Escavadeira', document.getElementById('qtd2').value)">Comprar pelo WhatsApp</button>
+    </div>
+
+    <div class="produto">
+        <img src="Imagem_carro.jpg" alt="Carros Esportivos">
+        <h3>Carros Esportivos</h3>
+        <p class="preco">R$ 20,00 <br><small>R$ 12,50 (a partir de 12)</small></p>
+        <input type="number" id="qtd3" min="1" value="1">
+        <button onclick="comprar('Carros Esportivos', document.getElementById('qtd3').value)">Comprar pelo WhatsApp</button>
+    </div>
+
+    <div class="produto">
+        <img src="Imagem_moto.jpg" alt="Motos Esportivas">
+        <h3>Motos Esportivas</h3>
+        <p class="preco">R$ 30,00 <br><small>R$ 25,00 (a partir de 6)</small></p>
+        <input type="number" id="qtd4" min="1" value="1">
+        <button onclick="comprar('Motos Esportivas', document.getElementById('qtd4').value)">Comprar pelo WhatsApp</button>
+    </div>
+</div>
+
+<script>
+function comprar(produto, quantidade) {
+    let numero = '5511959097089'; // Seu número de WhatsApp
+    let mensagem = `Olá, quero comprar ${quantidade} unidade(s) do produto ${produto}.`;
+    let url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
